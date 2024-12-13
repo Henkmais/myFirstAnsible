@@ -1,4 +1,4 @@
-- name: "Create basic settings for cisco routers"
+- name: "Create basic settings for Cisco routers"
   become: yes
   hosts: routers
   tasks:
@@ -6,11 +6,10 @@
       ios_config:
         lines:
           - hostname {{ inventory_hostname }}
-    - name: Set ip add to gigabitEthernet 2
+
+    - name: "Set IP address to GigabitEthernet2"
       ios_config:
-      parents: 
-        - "interface GigabitEthernet2"
-      lines:
-        - int GigabitEthernet2 
-        - ip address 10.0.0.1 255.255.255.252
-        
+        parents:
+          - "interface GigabitEthernet2"
+        lines:
+          - ip address 10.0.0.1 255.255.255.252
