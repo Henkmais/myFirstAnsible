@@ -1,0 +1,10 @@
+---
+- name: Updating linux servers
+  hosts: linuxServers
+  become: yes
+  tasks:
+    - name: Update the Linux system
+      apt:
+        update_cache: yes
+        cache_valid_time: 3600
+
