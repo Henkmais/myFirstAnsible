@@ -36,9 +36,9 @@
 
 
     - name: "Backup running-config"
-      ios_command:
+      ios_config:
         commands:
-          - show running-config
+          - do show run
       register: running_config
 
     - name: "Save running-config to file"
