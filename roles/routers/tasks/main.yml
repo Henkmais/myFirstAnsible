@@ -6,4 +6,9 @@
       ios_config:
         lines:
           - hostname {{ inventory_hostname }}
-          - do ping 192.168.1.1
+    - name: "Set ip add to GigabitEthernet 2"
+      ios_config:
+      parents: "interface GigabitEthernet2"
+      lines:
+         - ip address 10.0.0.1 255.255.255.252
+        
