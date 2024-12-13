@@ -2,10 +2,10 @@
   become: yes
   hosts: routers
   tasks:
-    - name: "Configure hostname from inventory"
-      ios_config:
-        lines:
-          - hostname {{ inventory_hostname }}
+#    - name: "Configure hostname from inventory"
+#      ios_config:
+#        lines:
+#          - hostname {{ inventory_hostname }}
     - name: "Set ip add to GigabitEthernet 2"
       ios_config:
       parents: "interface GigabitEthernet2"
