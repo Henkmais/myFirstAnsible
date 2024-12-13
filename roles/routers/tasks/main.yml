@@ -13,3 +13,10 @@
           - "interface GigabitEthernet2"
         lines:
           - ip address 10.0.0.1 255.255.255.252
+
+    - name: "ospf network 10.0.0.1"
+      ios_config:
+        parents:
+          - "router ospf 1"
+        lines:
+          - network 10.0.0.0 0.0.0.3 area 0
