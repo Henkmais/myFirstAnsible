@@ -25,8 +25,6 @@
       
     - name: "DHCP network 192.168.10.0"
       ios_config:
-        lines:
-          - ip dhcp excluded-address 192.168.10.50 192.168.10.250
         parents:
           - "ip dhcp pool dhcpPoolGi2"
         lines:
@@ -34,3 +32,4 @@
           - default-router 192.168.10.1
           - dns-server 192.168.10.1
           - domain-name 192.168.10.1
+          - ip dhcp excluded-address 192.168.10.1 192.168.10.50
