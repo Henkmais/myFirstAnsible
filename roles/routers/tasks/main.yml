@@ -2,6 +2,10 @@
   become: yes
   hosts: routers
   tasks:
+    - name: Save running to startup when modified
+      ios_config:
+      save_when: modified
+
     - name: "Configure hostname from inventory"
       ios_config:
         lines:
@@ -13,6 +17,7 @@
           - "interface GigabitEthernet2"
         lines:
           - ip address 10.0.0.1 255.255.255.252
+          - no shutdown
 
     - name: "ospf network 10.0.0.1"
       ios_config:
