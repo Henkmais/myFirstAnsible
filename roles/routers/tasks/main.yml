@@ -16,12 +16,22 @@
         parents:
           - "interface GigabitEthernet2"
         lines:
-          - ip address 10.0.0.1 255.255.255.252
+          - ip address 192.168.10.1 255.255.255.0
           - no shutdown
 
-    - name: "ospf network 10.0.0.1"
+    - name: "ospf network 192.168.10.0"
       ios_config:
         parents:
           - "router ospf 1"
         lines:
-          - network 10.0.0.0 0.0.0.3 area 0
+          - network 192.168.10.0 0.0.0.255 area 0
+      
+    - name: "DHCP network 192.168.10.0"
+      ios_config:
+        parrents:
+          - "ip dhcp pool dhcpPoolGi2"
+        lines:
+          - network 192.168.10.0 255.255.255.0
+          - default-router 192.168.10.1
+          - dns-server 192.168.10.1
+          - domain-name-servers 192.168.10.1
