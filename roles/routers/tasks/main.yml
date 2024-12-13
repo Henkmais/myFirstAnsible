@@ -2,11 +2,7 @@
   become: yes
   hosts: routers
   tasks:
-    - name: Save running to startup when modified
-      cisco.ios.ios_config:
-        save_when: modified
-
-      
+     
     - name: "Configure hostname from inventory"
       ios_config:
         lines:
@@ -36,3 +32,7 @@
           - default-router 192.168.10.1
           - dns-server 192.168.10.1
           - domain-name 192.168.10.1
+    
+    - name: Save running to startup when modified
+      cisco.ios.ios_config:
+        save_when: modified
