@@ -1,0 +1,9 @@
+- name: "Create basic settings for cisco routers"
+  become: yes
+  hosts: routers
+  tasks:
+    - name: "Configure hostname from inventory"
+      ios_config:
+        lines:
+          - hostname {{ inventory_hostname }}
+
