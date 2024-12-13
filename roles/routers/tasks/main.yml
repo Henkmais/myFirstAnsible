@@ -26,10 +26,10 @@
       
     - name: "DHCP network 192.168.10.0"
       ios_config:
-        parrents:
+        parents:
           - "ip dhcp pool dhcpPoolGi2"
         lines:
           - network 192.168.10.0 255.255.255.0
           - default-router 192.168.10.1
           - dns-server 192.168.10.1
-          
+          - domain-name 192.168.10.1
